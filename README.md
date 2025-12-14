@@ -4,8 +4,8 @@ This repository is a fork of a project originally developed by three gameplay pr
 Original project: [UbiArcadeRun](https://github.com/Artyu24/UbiArcadeRun/tree/main)
 
 Since I was the only one interested in continuing the project, I decided to create this fork to:
-- Keep an **archive** of the original work.
-- **Respect the contributions** of the other programmers.
+- Keep an **archive** of the original work on it's own repo.
+- **Respect the contributions** of the other programmers with their work on the original prototype.
 
 For obvious reasons, I will **rewrite all scripts that are not mine**, so I don’t falsely attribute their work to myself.
 
