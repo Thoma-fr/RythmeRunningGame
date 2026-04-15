@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-
+//contain the data for the song (seted in editor for modularity)
 public enum SongType
 {
     Normal,
@@ -26,7 +26,7 @@ public class Song
     public UnityEvent Beat2;
     public UnityEvent Beat3;
 
-    public void SetupBPM()
+    public void SetupBPM() //this really need some refacto
     {
         if (_type == SongType.Normal)
         {
@@ -48,7 +48,7 @@ public class Song
         }
     }
     
-    public IEnumerator Beat(float interval, UnityEvent beatEvent)
+    public IEnumerator Beat(float interval, UnityEvent beatEvent)//event called at every beat of the song
     {
         while (true)
         {

@@ -43,6 +43,5 @@ public class AudioSync : MonoBehaviour
                 OnBeat();
         }
         _timer += Time.deltaTime;
-
     }
 }

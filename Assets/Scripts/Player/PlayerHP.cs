@@ -1,16 +1,19 @@
 using SMP_LIG;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
+    //this need a complet refacto with event
     [SerializeField]
     private float m_playerMaxHP = 100;
     [SerializeField]
     private float m_playerHP;
     [SerializeField]
     private TextMeshProUGUI m_hpUI;
-
+    [SerializeField]
+    private Slider m_lifeSlider;
     private bool m_isDead;
     public bool IsDead {  get { return m_isDead; } }
 
@@ -50,8 +53,7 @@ public class PlayerHP : MonoBehaviour
 
     private void UpdateHPUI()
     {
-        if (m_playerHP > 0) m_hpUI.text = "HP : " + m_playerHP;
-        else m_hpUI.text = "YOU LOSE !";
+        m_lifeSlider.value = m_playerHP;
     }
     private void PlayerDeath()
     {

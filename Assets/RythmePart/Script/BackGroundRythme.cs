@@ -5,11 +5,7 @@ public class BackGroundRythme : RythmeObject
 {
     [SerializeField] private float _beatScale=5;
     [SerializeField] private float _restScale=1;
-    public void SubTick()
-    {
-        
-    }
-
+    public void SubTick(){ }
     public override void Tick()
     {
         Sequence mySequence = DOTween.Sequence();

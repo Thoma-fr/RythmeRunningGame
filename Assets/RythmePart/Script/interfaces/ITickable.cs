@@ -1,6 +1,5 @@
 using System;
-
-
+//can be replace by a class since some method a not always use
 public interface ITickable
 {
     

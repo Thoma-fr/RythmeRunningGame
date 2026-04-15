@@ -4,13 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
-
-
-
-
+//class used as a metrome for the non dynamics related objects
 public class Metronome : MonoBehaviour
-{ //en gros avec ce script j'assaie de trouver un moyen de lié les trucs en rythmes
+{
     public static Metronome instance;
     [field: SerializeField] public AudioSource Source { get; private set; }
 
@@ -18,7 +14,6 @@ public class Metronome : MonoBehaviour
     [field: SerializeField] public List<Song> Songs { get; private set; } = new List<Song>();
     public Song _currentSong;
     private int _songIndex=0;
-    //[SerializeField] private float _tickInterval;
     [SerializeField] private bool _isTicking;
     [SerializeField] private bool _tickSound;
     [SerializeField] private List<List<ITickable>> Container;
@@ -32,33 +27,18 @@ public class Metronome : MonoBehaviour
     private List<Coroutine> _coroutines = new List<Coroutine>();
     public void Awake()
     {
-        //Container.Add(ToTick1);
-
         if (instance == null)
             instance = this;
         else
             Destroy(this);
 
         _currentSong = Songs[0];
-        //StartSound();
-        
     }
     
     IEnumerator Start()
     {
         yield return new WaitForSeconds(2f);
         StartSound();
-        //_currentSong=Songs[0];
-        //StartSound();
-
-        ////_currentSong.StartSound();
-        ///*foreach (var bpm in Songs[0].BPM)
-        //{
-        //    _coroutines.Add(StartCoroutine(Tick(bpm)));
-        //    Source.Play();
-        //}*/
-        ////_coroutines.Add(StartCoroutine(Tick(Songs[0].BPM[0], ToTick1)));
-        //Source.Play();
     }
     IEnumerator musicDuration()
     {
@@ -70,12 +50,6 @@ public class Metronome : MonoBehaviour
             _songIndex=0;
         _currentSong = Songs[_songIndex];
         StartSound();
-    }
-    void TickAllObjectInList(List<ITickable> totick)
-    {
-
-        foreach (var t in totick)
-            t.Tick();
     }
     public void StartSound()
     {
@@ -96,29 +70,4 @@ public class Metronome : MonoBehaviour
         }
         Source.Stop();
     }
-    //void SubTickAllObjectInList()
-    //{
-
-    //    foreach (var t in ToTick)
-    //        t.SubTick();
-    //}
-    /*IEnumerator Tick(float _tickInterval, List<ITickable> toTick)
-    {
-        while (true)
-        {
-            //yield return new WaitForSeconds(_tickInterval / 2);
-            //SubTickAllObjectInList();
-            //if (_tickSound)
-                //Source.PlayOneShot(_subtickSound);
-            yield return new WaitForSeconds(_tickInterval);
-            
-            //TickAllObjectInList(toTick);
-            //SubTickAllObjectInList();
-            //if (_tickSound)
-            //Source.PlayOneShot(_ticksound);
-            //TickAllObjectInList();
-        }
-
-    }*/
-
 }
